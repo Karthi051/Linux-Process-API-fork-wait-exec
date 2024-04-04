@@ -1,3 +1,5 @@
+# Name : KARTHIKEYAN K
+# Reg no : 212223230101
 # Linux-Process-API-fork-wait-exec-
 Ex02-Linux Process API-fork(), wait(), exec()
 # Ex02-OS-Linux-Process API - fork(), wait(), exec()
@@ -24,7 +26,28 @@ Test the C Program for the desired output.
 # PROGRAM:
 
 ## C Program to print process ID and parent Process ID using Linux API system calls
+```
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(void)
+{	//variable to store calling function's process id
+	pid_t process_id;
+	//variable to store parent function's process id
+	pid_t p_process_id;
+	//getpid() - will return process id of calling function
+	process_id = getpid();
+	//getppid() - will return process id of parent function
+	p_process_id = getppid();
+	//printing the process ids
 
+//printing the process ids
+	printf("The process id: %d\n",process_id);
+	printf("The process id of parent function: %d\n",p_process_id);
+	return 0; }
+
+
+```
 
 
 
@@ -44,6 +67,7 @@ Test the C Program for the desired output.
 
 
 
+![image](https://github.com/Karthi051/Linux-Process-API-fork-wait-exec/assets/148327224/f1bc5b77-38ea-47bf-a36f-06829e68f583)
 
 
 
@@ -61,7 +85,24 @@ Test the C Program for the desired output.
 
 
 
+```
 
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{ int pid; 
+pid=fork(); 
+if(pid == 0) 
+{ printf("Iam child my pid is %d\n",getpid()); 
+printf("My parent pid is:%d\n",getppid()); 
+exit(0); } 
+else{ 
+printf("I am parent, my pid is %d\n",getpid()); 
+sleep(100); 
+exit(0);} 
+}
+
+```
 
 
 
@@ -74,6 +115,7 @@ Test the C Program for the desired output.
 
 
 
+![image](https://github.com/Karthi051/Linux-Process-API-fork-wait-exec/assets/148327224/94543f1d-69ae-4f39-9709-82a96115d364)
 
 
 
@@ -82,7 +124,21 @@ Test the C Program for the desired output.
 
 
 
+```
 
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	printf("Running ps with execlp\n");
+	execlp("ps", "ps", "ax", NULL);
+	printf("Done.\n");
+	exit(0);
+}
+
+
+```
 
 
 
@@ -110,6 +166,7 @@ Test the C Program for the desired output.
 
 
 
+![image](https://github.com/Karthi051/Linux-Process-API-fork-wait-exec/assets/148327224/8b4691f0-e58f-42e3-9468-2a2f5eb9f0a0)
 
 
 
